@@ -38,14 +38,15 @@ def blogposts(request):
 
 def process_blog_name(blog):
     blog_list = blog.split("-")
-    return " ".join(blog_list).title()
-# To make the templates heading more proffesional, python-intro => Python Intro
+    return " ".join(blog_list)
+# To make the templates heading looks more proffesional, python-intro => Python Intro
 
 def blog_posts(request, blog):
     try:
         res = blog_names[blog]
         return render(request, "blog/posts.html", 
-    {"blog_text":res, "blog_name":process_blog_name(blog)})# this is the way we can make more dynamic templates by using DTL.
+    # this is the way we can make more dynamic templates by using DTL(Django Template Lamguage).G0 and see the title and body of posts.html
+    {"blog_text":res, "blog_name":process_blog_name(blog)})
     except Exception:
         return HttpResponseNotFound("<h1>Blog post not found.</h1>")
    
