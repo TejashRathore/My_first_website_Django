@@ -22,7 +22,9 @@ def blogposts(request):
     
     # Extract all blog names (keys) from the blog_names dictionary as a list
     blog_keys = list(blog_names.keys())
-    
+
+    return render(request, 'blog/blog-posts.html',{'blog':blog_keys})
+
     # Iterate through each blog name to generate dynamic links
     for b in blog_keys:
         # Generate the URL path for each blog post using Django's reverse() function with the blog name as an argument
@@ -36,17 +38,12 @@ def blogposts(request):
     return HttpResponse(res_data)
 
 
-def process_blog_name(blog):
-    blog_list = blog.split("-")
-    return " ".join(blog_list)
-# To make the templates heading looks more proffesional, python-intro => Python Intro
-
 def blog_posts(request, blog):
     try:
         res = blog_names[blog]
         return render(request, "blog/posts.html", 
     # this is the way we can make more dynamic templates by using DTL(Django Template Lamguage).G0 and see the title and body of posts.html
-    {"blog_text":res, "blog_name":process_blog_name(blog)})
+    {"blog_text":res, "blog_name":(blog)})
     except Exception:
         return HttpResponseNotFound("<h1>Blog post not found.</h1>")
    
