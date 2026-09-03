@@ -7,7 +7,16 @@
         <title>{{blog_name|title}}</title> 
 </head>
 <body>
+    
+    {% if  blog_text  %}
     <h1>This is {{blog_name|title}} blog post.</h1>
     <h2>{{blog_text}}</h2>
+    {% else %}
+    <h3>Blog construction is under pr00gress.......!</h3>
+    {% endif %}
 </body>
 </html>
+{% comment %}
+This file is creating the actual templates of your blogs 
+and showing the html content on the browser.
+{% endcomment %}
