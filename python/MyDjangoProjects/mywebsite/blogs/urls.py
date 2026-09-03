@@ -8,4 +8,4 @@ urlpatterns = [
     path("blog-posts/<slug:blog>", views.blog_posts,name = "blog-posts")
 
 
-]
+]   
