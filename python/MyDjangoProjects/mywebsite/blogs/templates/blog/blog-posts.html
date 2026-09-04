@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{blog_name|title}}</title>
-</head>
-<body>
+{%extends "base.html"%}
+{% block block_page%}
+blog_name
+{% endblock %}
+
+{%block body_content %}
     <ul>
         {% for b in blog %} 
             <li><a href = "{% url 'blog-posts' blog=b %}">{{b|capfirst}}</a></li> 
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}
+
 {% comment %}
 This file is creating the url of your blogs, line no. 11 is
 the main function or content to make the link of the url.
