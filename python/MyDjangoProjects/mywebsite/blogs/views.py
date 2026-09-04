@@ -12,7 +12,7 @@ blog_names = {
 # Create your views here.
 
 def home(request):
-    return render(request,"blog/index.html")
+    return render(request,"blog/home_page.html")
    # res_html=render_to_string("blog/index.html")
    # return HttpResponse(res_html)
 
