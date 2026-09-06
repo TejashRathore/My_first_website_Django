@@ -4,6 +4,7 @@ blog_name
 {% endblock %}
 
 {% block body_content%}
+    {% include "blog/includes/headers.html" %}
     
     {% if  blog_text  %}
     <h1>This is {{blog_name|title}} blog post.</h1>
@@ -14,6 +15,6 @@ blog_name
 {% endblock %}
 
 {% comment %}
-This file is creating the actual templates of your blogs 
+This file is creating the actual templates of my blogs 
 and showing the html content on the browser.
 {% endcomment %}

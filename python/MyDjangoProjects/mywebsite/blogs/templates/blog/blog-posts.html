@@ -1,9 +1,10 @@
 {%extends "base.html"%}
 {% block block_page%}
-blog_name
+    {{blog_name|title}}
 {% endblock %}
 
 {%block body_content %}
+    {% include "blog/includes/headers.html"%}
     <ul>
         {% for b in blog %} 
             <li><a href = "{% url 'blog-posts' blog=b %}">{{b|capfirst}}</a></li> 

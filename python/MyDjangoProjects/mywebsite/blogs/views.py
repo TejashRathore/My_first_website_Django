@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import Http404, HttpResponseNotFound
 from django.urls import reverse
 blog_names = {
     "python-intro":"Hello user's, You're at the python_intro page.",
@@ -15,7 +15,7 @@ def home(request):
     return render(request,"blog/home_page.html")
    # res_html=render_to_string("blog/index.html")
    # return HttpResponse(res_html)
-
+    
 def blogposts(request):
     # Extract all blog names (keys) from the blog_names dictionary as a list
     blog_keys = list(blog_names.keys())
@@ -41,7 +41,7 @@ def blog_posts(request, blog):
         return render(request, "blog/posts.html",  # this is the way we can make more dynamic templates by using DTL(Django Template Language).G0 and see the title and body of posts.html
     {"blog_text":res, "blog_name":(blog)})
     except Exception:                                       
-        return HttpResponseNotFound("<h1>Blog post not found.</h1>")
+        raise Http404()
    
 
 
