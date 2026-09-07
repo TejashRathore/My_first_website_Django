@@ -1,9 +1,17 @@
 {%extends "base.html"%}
+{% load static %}
+
+{% block css_files %}
+    <link rel = "stylesheet" href = "{% static 'blogs/posts.css' %}">
+{% endblock %}
+
+
 {% block block_page%}
     {{blog_name|title}}
 {% endblock %}
 
 {%block body_content %}
+
     {% include "blog/includes/headers.html"%}
     <ul>
         {% for b in blog %} 
