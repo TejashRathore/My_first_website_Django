@@ -42,6 +42,5 @@ def blog_posts(request, blog):
     {"blog_text":res, "blog_name":(blog)})
     except Exception:                                       
         raise Http404()
-   
 
 
