@@ -129,3 +129,6 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+STATICFILES_DIR = [
+    BASE_DIR / "static"
+]
