@@ -21,7 +21,7 @@ Blog post home page
         <header>
             <h1>Welcome to my first website project home page templates. </h1>
             <h2>I am learning python Django from the TuteDude paltform. </h2>
-            <img src = "" alt = "Author"/>
+            <img src = "{% static 'blogs/images/author.jpg'%}" alt = "Author"/>
         </header>
     </section>
     <section>
@@ -30,7 +30,7 @@ Blog post home page
             <li> 
                 <artical>
                     <a href = "">
-                        <img src ="" alt="Python" />
+                        <img src ="{% static 'blogs/images/python.jpg'%}" alt="Python" />
                         <div>
                             <h2> Python Intro </h2>
                         </div>
@@ -41,7 +41,7 @@ Blog post home page
             <li> 
                 <artical>
                     <a href = "">
-                        <img src ="" alt="Django" />
+                        <img src ="{% static 'blogs/images/django.jpg'%}" alt="Django" />
                         <div>
                             <h2> Django Basics</h2>
                         </div>
