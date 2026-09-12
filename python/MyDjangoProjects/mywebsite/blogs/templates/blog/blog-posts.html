@@ -13,12 +13,16 @@
 {%block body_content %}
 
     {% include "blog/includes/headers.html"%}
-    <ul>
-        {% for b in blog %} 
-            <li><a href = "{% url 'blog-posts' blog=b %}">{{b|capfirst}}</a></li> 
-        {% endfor %}
-    </ul>
+    <section>
+        <h1> ALL MY POSTS</h1>
+        <ul>
+            {% for b in blog %} 
+                <li><a href = "{% url 'blog-posts' blog=b %}">{{b|capfirst}}</a></li> 
+            {% endfor %}
+        </ul>
+    </section>
 {% endblock %}
+
 
 {% comment %}
 This file is creating the url of your blogs, line no. 11 is
