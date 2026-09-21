@@ -21,30 +21,19 @@ Blog post home page
     </section>
     <section>
         <h1> Featured Post</h1>
-        <ul>
-            <li> 
-                <artical>
-                    <a href = "">
-                        <img src ="{% static 'blogs/images/python.jpg'%}" alt="Python" />
-                        <div>
-                            <h2> Python Intro </h2>                        
-                            <p>Python is a high level programming language. It is begginer friendly language.</p>
-                        </div>
-                    </a>
-                </artical>
-            </li>
-            <li> 
-                <artical>
-                    <a href = "">
-                        <img src ="{% static 'blogs/images/django.jpg'%}" alt="Django" />
-                        <div>
-                            <h2> Django Basics</h2>
-                        </div>
-                        <p> Django is the language which is used for the webdevelopment .</p>
-                    </a>
-                </artical>
-            </li>
-        </ul>
+            <ul>
+                {% for blog in latest_blog %} 
+                    <li>
+                        <artical>
+                            <a href = "{% url 'blog-posts' blog=blog.slug %}">{{blog.title|capfirst}}</a>
+                            <img src ="{% static 'blogs/images/'|add:blog.image%}" alt="{{blog.title}}" />
+                            <div>
+                                <p>{{ blog.preview }}</p>
+                            </div>
+                        </artical>
+                    </li> 
+                {% endfor %}
+            </ul>
     </section>
     <section>
 
