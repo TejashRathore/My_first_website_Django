@@ -6,7 +6,7 @@ blog_details = [
     {
             "slug":"python-intro",
             "image":"python.jpg",
-            "date": date(2026, 9, 17),
+            "date": date(year=2026, month=9, day=20),
             "title":"Python Introduction",
             "preview":"""python is an open source high level language that is used widly by many users and programmers 
             Application of python are software development, Data science, AI, Ml etc.""",
@@ -15,22 +15,22 @@ blog_details = [
             Backed by a huge global community and vast library ecosystem, Python lets you build complex applications quickly."""
     },
     {
-    "slug": "django-intro",
-    "image": "django.jpg",
-    "date": date(year=2026, month=9, day=17),
-    "title": "Django Introduction",
-    "preview": """Django is a high-level Python web framework that enables rapid development of secure and maintainable websites. Built by experienced developers, it takes care of much of the hassle of web development.""",
-    "content": """Django follows the Model-View-Template (MVT) architectural pattern and emphasizes reusability, rapid prototyping, and the 'Don't Repeat Yourself' (DRY) principle.
-    It comes with a built-in admin interface, robust database ORM, and integrated security features to protect against common web vulnerabilities out of the box."""
-    },
-    {
-    "slug": "python-oops",
-    "image": "python-oops.png",
-    "date": date(year=2026, month=9, day=17),
-    "title": "Python Object-Oriented Programming",
-    "preview": """Object-Oriented Programming (OOP) in Python is a programming paradigm that uses objects and classes to structure software program design into reusable code patterns.""",
-    "content": """Python fully supports object-oriented programming concepts including classes, objects, inheritance, encapsulation, polymorphism, and abstraction.
-    By organizing code into logical components, OOP makes complex software systems easier to scale, maintain, and debug over time."""
+            "slug": "django-intro",
+            "image": "django.jpg",
+            "date": date(year=2026, month=9, day=21),
+            "title": "Django Introduction",
+            "preview": """Django is a high-level Python web framework that enables rapid development of secure and maintainable websites. Built by experienced developers, it takes care of much of the hassle of web development.""",
+            "content": """Django follows the Model-View-Template (MVT) architectural pattern and emphasizes reusability, rapid prototyping, and the 'Don't Repeat Yourself' (DRY) principle.
+            It comes with a built-in admin interface, robust database ORM, and integrated security features to protect against common web vulnerabilities out of the box."""
+            },
+            {
+            "slug": "python-oops",
+            "image": "oops.png",
+            "date": date(year=2026, month=9, day=19),
+            "title": "Python Object-Oriented Programming",
+            "preview": """Object-Oriented Programming (OOP) in Python is a programming paradigm that uses objects and classes to structure software program design into reusable code patterns.""",
+            "content": """Python fully supports object-oriented programming concepts including classes, objects, inheritance, encapsulation, polymorphism, and abstraction.
+            By organizing code into logical components, OOP makes complex software systems easier to scale, maintain, and debug over time."""
     }
                 ]
 {
@@ -45,7 +45,9 @@ blog_details = [
 # Create your views here.
 
 def home(request):
-    return render(request,"blog/home_page.html")
+    sorted_blog = sorted(blog_details, key = lambda post:post["date"], reverse = True )
+    latest_blog = sorted_blog[0:2]
+    return render(request,"blog/home_page.html", {"latest_blog":latest_blog})
 
 def blogposts(request):
     return render(request, 'blog/blog-posts.html',{'blog':blog_details})
