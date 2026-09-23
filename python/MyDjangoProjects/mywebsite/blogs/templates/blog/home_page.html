@@ -22,16 +22,8 @@ Blog post home page
     <section>
         <h1> Featured Post</h1>
             <ul>
-                {% for blog in latest_blog %} 
-                    <li>
-                        <artical>
-                            <a href = "{% url 'blog-posts' blog=blog.slug %}">{{blog.title|capfirst}}</a>
-                            <img src ="{% static 'blogs/images/'|add:blog.image%}" alt="{{blog.title}}" />
-                            <div>
-                                <p>{{ blog.preview }}</p>
-                            </div>
-                        </artical>
-                    </li> 
+                {% for b in latest_blog %} 
+                    {% include 'blog/includes/posts.html' %}
                 {% endfor %}
             </ul>
     </section>

@@ -17,15 +17,7 @@
         <h1> ALL MY POSTS</h1>
         <ul>
             {% for b in blog %} 
-                <li>
-                    <artical>
-                        <a href = "{% url 'blog-posts' blog=b.slug %}">{{b.title|capfirst}}</a>
-                        <img src ="{% static 'blogs/images/'|add:b.image%}" alt="{{b.title}}" />
-                        <div>
-                            <p>{{ b.preview }}</p>
-                        </div>
-                    </artical>
-                </li> 
+                {% include 'blog/includes/posts.html' %}
             {% endfor %}
         </ul>
     </section>
